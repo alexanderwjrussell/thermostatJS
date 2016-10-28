@@ -17,7 +17,6 @@
 
   <div class="left">
     <h1> Thermostat </h1>
-    <form method="post" action="/">
       <section>
         <h1> Ambient Temperature: <span id="current-temperature"><span></h1>
         <select name="city" id="current-city">
@@ -27,7 +26,6 @@
           <option value="tokyo">Tokyo</option>
           <option value="newyork">New York</option>
         </select>
-        <button id="save-state">Save Your Settings</button>
       </section>
 
       <!-- <section>
@@ -40,17 +38,19 @@
 
 
       <section>
-        <h2> Thermostat Temperature: <span id="temperature"></span> </h2>
+        <h2> Thermostat Temperature: <span id="temperature"><%= setting.temperature %></span> </h2>
         <h2 class="degrees">degrees</h2>
         <h2>Energy usage: <span id="energy-usage"></span></h2>
         <h3>Power saving mode is <span id="power-saving-status">on</span></h3>
-    </form>
-        <button id="temp-up">Up</button>
-        <button id="temp-down">Down</button>
-        <button id="reset">Reset</button>
+
+        <button id="temp-up">+</button>
+        <button id="temp-down">-</button>
+        <button id="reset">reset</button>
         <button id="powersaving-on">Power Saving On</button>
         <button id="powersaving-off">Power Saving Off</button>
 
+        <button id="save-state">Save your Settings</button>
+        <button id="load-state">Load your Settings</button>
       </section>
 
     </div>

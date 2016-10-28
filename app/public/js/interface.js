@@ -57,4 +57,34 @@ $(document).ready(function(){
       $('#select-temperature').text(data.main.temp);
     })
   })
+
+  $('#save-state').click(function() {
+      var city_name = $('#current-city').val();
+      var status = thermostat.isPowerSavingMode;
+      var temperature = thermostat.temperature();
+      $.get({
+         type: 'post',
+         url: '/save',
+         data: {
+           'city': city_name,
+           'powersaving': status,
+           'temperature': temperature
+         }
+     });
+  });
+
+  $('#load-state').click(function() {
+      var city_name = $('#current-city').val();
+      var status = thermostat.isPowerSavingMode;
+      var temperature = thermostat.temperature();
+      $.get({
+         type: 'post',
+         url: '/save',
+         data: {
+           'city': city_name,
+           'powersaving': status,
+           'temperature': temperature
+         }
+     });
+  });
 })

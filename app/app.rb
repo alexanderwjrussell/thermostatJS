@@ -5,19 +5,16 @@ require_relative 'models/setting'
 class Thermostat < Sinatra::Base
 
   get '/' do
+    setting = Setting.last
+
     erb :'index'
   end
 
-  post '/save/city' do
+  post '/save' do
     puts params.inspect
-    setting = Setting.new(city: params[:city])
-    setting.save
-    redirect "/"
-  end
-
-  post '/save/temperature' do
-    puts params.inspect
-    setting = Setting.new(temperature: params[:temperature])
+    setting = Setting.new(city: params[:city],
+                          temperature: params[:temperature],
+                          powersaving: params[:powersaving])
     setting.save
     redirect "/"
   end
