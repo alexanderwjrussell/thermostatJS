@@ -1,22 +1,24 @@
 require 'sinatra/base'
 require 'data_mapper'
+require 'json'
 require_relative 'models/setting'
 
 class Thermostat < Sinatra::Base
 
-  get '/' do
-    setting = Setting.last
-
-    erb :'index'
+  get '/blahblah' do
+    headers 'Access-Control-Allow-Origin' => '*'
+    settings = Setting.last
+    { city: settings.city,
+      temperature: settings.temperature,
+      powersaving: settings.powersaving
+    }.to_json
   end
 
-  post '/save' do
-    puts params.inspect
-    setting = Setting.new(city: params[:city],
+  post '/settings' do
+    Setting.all.destroy
+    setting = Setting.create(city: params[:city],
                           temperature: params[:temperature],
                           powersaving: params[:powersaving])
-    setting.save
-    redirect "/"
   end
 
   run! if app_file == $0

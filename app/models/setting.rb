@@ -11,4 +11,4 @@ end
 
 DataMapper.setup(:default, "postgres://localhost/thermostat_development")
 DataMapper.finalize
-DataMapper.auto_migrate!
+DataMapper.auto_upgrade!

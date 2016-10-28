@@ -1,15 +1,25 @@
 $(document).ready(function(){
 
-  var thermostat = new Thermostat();
+  var thermostat;
+
+  $.getJSON('http://localhost:4567/blahblah', function(data){
+    thermostat = new Thermostat(data.temperature);
+    updateTemperature();
+    displayWeather(data.city);
+    if(data.powersaving === false){
+      thermostat.savingPowerOff();
+      $('#power-saving-status').text('OFF');
+    }
+  });
 
   function updateTemperature() {
     $('#temperature').text(thermostat.temperature());
     $('#temperature').attr('class', thermostat.displayUsage());
     $('#energy-usage').text(thermostat.displayUsage());
-    displayWeather("London")
+    displayWeather("London");
   }
 
-  updateTemperature();
+  // updateTemperature();
 
   $('#temp-up').on('click', function(){
     thermostat.up();
@@ -64,22 +74,7 @@ $(document).ready(function(){
       var temperature = thermostat.temperature();
       $.get({
          type: 'post',
-         url: '/save',
-         data: {
-           'city': city_name,
-           'powersaving': status,
-           'temperature': temperature
-         }
-     });
-  });
-
-  $('#load-state').click(function() {
-      var city_name = $('#current-city').val();
-      var status = thermostat.isPowerSavingMode;
-      var temperature = thermostat.temperature();
-      $.get({
-         type: 'post',
-         url: '/save',
+         url: 'http://localhost:4567/settings',
          data: {
            'city': city_name,
            'powersaving': status,
