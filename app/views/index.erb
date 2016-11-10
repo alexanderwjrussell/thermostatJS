@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+  <title>Thermostat</title>
+
+  <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
+  <link rel='stylesheet' href='css/bootstrap-responsive.css'>
+  <link rel='stylesheet' href='css/bootstrap.css'>
+
+</head>
+
+<body>
+  <div class="right">
+    <h2 id="degrees">degrees</h2>
+    <img id="thermometer" src="http://i.imgur.com/dEvMDIM.png">
+  </div>
+
+
+  <div class="left">
+    <h1> Thermostat </h1>
+      <section>
+        <h1> Ambient Temperature: <span id="current-temperature"><span></h1>
+        <select name="city" id="current-city">
+          <option value="london">London</option>
+          <option value="edinburgh">Edinburgh</option>
+          <option value="lincoln">Lincoln</option>
+          <option value="tokyo">Tokyo</option>
+          <option value="newyork">New York</option>
+        </select>
+      </section>
+
+      <!-- <section>
+        <h1> Specified City Temperature: <span id="select-temperature"></span></h1>
+        <form id="select-city">
+          <input id="selected-city" name='city' type="text" placeholder="Enter a city"></input>
+          <input type="submit"></input>
+        </form>
+      </section> -->
+
+
+      <section>
+        <h2> Thermostat Temperature: <span id="temperature"><%= %></span> </h2>
+        <h2 class="degrees">degrees</h2>
+        <h2>Energy usage: <span id="energy-usage"></span></h2>
+        <h3>Power saving mode is <span id="power-saving-status">on</span></h3>
+
+        <button id="temp-up">+</button>
+        <button id="temp-down">-</button>
+        <button id="reset">reset</button>
+        <button id="powersaving-on">Power Saving On</button>
+        <button id="powersaving-off">Power Saving Off</button>
+
+        <button id="save-state">Save your Settings</button>
+        <button id="load-state">Load your Settings</button>
+      </section>
+
+    </div>
+
+  <script src="js/thermostat.js"></script>
+  <script src="js/jquery-3.1.1.js"></script>
+  <script src="js/interface.js"></script>
+  <script src='js/bootstrap.js'></script>
+
+</body>

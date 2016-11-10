@@ -1,0 +1,68 @@
+
+.low-usage {
+  color: green;
+}
+
+.medium-usage {
+  color: orange;
+}
+
+.high-usage {
+  color: red;
+}
+
+#thermometer {
+  position: relative;
+  top: 23.5%;
+  right: -20%;
+}
+
+
+
+#temperature {
+  font-size: 150px;
+  position: absolute;
+  left: 43%;
+  bottom: 55%;
+
+}
+#reset {
+  font-size: 30px;
+  border: none;
+  background: none;
+  font-family: "Helvetica";
+  text-decoration: bold;
+}
+
+#temp-up, #temp-down {
+  font-size: 30px;
+  border: none;
+  background: none;
+  font-family: "Helvetica";
+  text-decoration: bold;
+}
+#degrees {
+	transform: rotate(90deg);
+	transform-origin: left top 0;
+  position: absolute;
+  left: 67%;
+  bottom: 80%;
+  color: white;
+  font-size: 100px;
+}
+
+
+.right {
+  float: right;
+  width: 40%;
+  height: 1000px;
+  background: black;
+}
+
+.left {
+
+    background: white;
+    /* the next props are meant to keep this block independent from the other floated one */
+    width: auto;
+    overflow: hidden;
+}​​
